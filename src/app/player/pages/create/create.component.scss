@@ -1,0 +1,39 @@
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.create_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.create_form button {
+    width: 10em;
+    height: 3em;
+    border-radius: 3em;
+    border: none;
+}
+
+.create_form__input {
+    display: flex;
+    flex-direction: column;
+}
+
+.create_form__input label {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+.create_form__input input {
+    border-radius: 1em;
+    border: 1px solid black;
+    width: 20em;
+    height: 2em;
+    padding: 1em;
+    box-sizing: border-box;
+}
+

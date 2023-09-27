@@ -1,1 +1,19 @@
-<p>create works!</p>
+<div class="container">
+    <div class="create_form">
+        <div class="create_form__input">
+            <label for="name">Nome</label>
+            <input id="name" type="text" [(ngModel)]="player.name">
+        </div>
+        <div class="create_form__input">
+            <label for="surname">Sobrenome</label>
+            <input id="surname" type="text" [(ngModel)]="player.surname">
+        </div>
+        <div class="create_form__input">
+            <label for="nick">Nick</label>
+            <input id="nick" type="text" [(ngModel)]="player.nickname">
+        </div>
+        <button (click)="createNewPlayer()">Criar</button>
+        <p *ngIf="successMsg" style="color: green; font-weight: 800;">{{successMsg}}</p>
+        <p *ngIf="errorMsg" style="color: red; font-weight: 800;">{{errorMsg}}</p>
+    </div>
+</div>
