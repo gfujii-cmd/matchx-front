@@ -9,15 +9,29 @@ import { LeagueModel } from 'src/app/model/league.model';
 })
 export class MainComponent {
 
-  league!: LeagueModel;
+  leagues!: LeagueModel[];
 
   constructor(private leagueService: LeagueService) {}
 
   searchLeagueWithDate(date: string): void {
-    console.log(date)
     this.leagueService.getLeagueByDate(date).subscribe({
       next: (result: LeagueModel[]) => {
-        this.league = result[0]
+        this.leagues = result
+      },
+      error: (err) => {
+        if(err.status === 404) {
+          alert(`Nenhuma liga encontrada para a data fornecida`)
+        } else {
+          alert(`Um erro inesperado ocorreu`)
+        }
+      }
+    })
+  }
+
+  searchLeagueWithDateRange(sDate: string, eDate: string): void {
+    this.leagueService.getLeagueByDateRange(sDate, eDate).subscribe({
+      next: (result: LeagueModel[]) => {
+        this.leagues = result
       },
       error: (err) => {
         if(err.status === 404) {

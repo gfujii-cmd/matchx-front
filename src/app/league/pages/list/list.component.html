@@ -1,18 +1,21 @@
-<div class="league_container">
-    <p>Loja: {{league.storeName}}</p>
-    <p>Jogo: {{gameNameFormat(league.game)}}</p>
-    <p>Data: {{dateFormat(league.startDate)}}</p>
-</div>
-<p>Players:</p>
-<div class="player_grid">
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Pontos</th>
-        </tr>
-        <tr *ngFor="let player of league.players">
-            <td>{{player.name}}</td>
-            <td>{{player.points}}</td>
-        </tr>
-    </table>
+<div *ngFor="let league of leagues" class="container">
+    <div class="league_container">
+        <p>Loja: {{league.storeName}}</p>
+        <p>Jogo: {{gameNameFormat(league.game)}}</p>
+        <p>Data: {{dateFormat(league.startDate)}}</p>
+    </div>
+    <div class="player_table">
+        <p>Players:</p>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Pontos</th>
+            </tr>
+            <tr *ngFor="let player of league.players">
+                <td>{{player.name}}</td>
+                <td>{{player.points}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
 </div>

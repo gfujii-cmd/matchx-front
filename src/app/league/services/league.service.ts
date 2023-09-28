@@ -20,6 +20,11 @@ export class LeagueService {
     return this.http.get<LeagueModel[]>(`${BASE_URL}/league/findByDate?date=${date}`)
   }
 
+  // get by range
+  getLeagueByDateRange(sDate: string, eDate: string): Observable<LeagueModel[]> {
+    return this.http.get<LeagueModel[]>(`${BASE_URL}/league/findByDateRange?sDate=${sDate}&eDate=${eDate}`)
+  }
+
   // create new league
   create(league: LeagueModel): Observable<void> {
     return this.http.post<void>(`${BASE_URL}/league/register`, league)

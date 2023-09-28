@@ -1,9 +1,19 @@
+.container {
+    margin-bottom: 3em;
+}
+
 .league_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
-    margin-bottom: 2em;
+    box-sizing: border-box;
+    padding: 2em;
+}
 
+.player_table {
+    box-sizing: border-box;
+    padding: 1em;
+    margin-bottom: 2em;
 }
 
 table {
@@ -12,11 +22,15 @@ table {
 }
 
 td, th {
-border: 1px solid #dddddd;
-text-align: left;
-padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
 tr:nth-child(even) {
 background-color: #dddddd;
+}
+
+hr {
+    width: 20em
 }

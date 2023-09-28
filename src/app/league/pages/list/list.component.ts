@@ -8,7 +8,7 @@ import { LeagueModel } from 'src/app/model/league.model';
 })
 export class ListComponent {
 
-  @Input() league!: LeagueModel;
+  @Input() leagues!: LeagueModel[];
 
   constructor(){}
 
