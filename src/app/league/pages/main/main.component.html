@@ -1,20 +1,34 @@
 <div class="container">
     <div class="container__options">
-        <div class="options__search">
-            <div class="search__input">
-                <label for="date">Buscar liga por data:</label>
-                <input type="date" #date>
+        <div class="options__grid">
+            <div class="options__search">
+                <h2>Buscar por data</h2>
+                <mat-form-field>
+                    <mat-label>Data</mat-label>
+                    <input matInput [matDatepicker]="picker" #date>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <button mat-flat-button color="accent"  (click)="searchLeagueWithDate(date.value)">🔎</button>
             </div>
-            <button (click)="searchLeagueWithDate(date.value)">🔎</button>
-        </div>
-        <div class="options__search">
-            <div class="search__input">
-                <label for="date">Buscar liga por range:</label>
-                <input type="date" #dateStart> até <input type="date" #dateEnd>
+            <div class="options__search">
+                <h2>Buscar por range</h2>
+                <mat-form-field>
+                    <mat-label>Data Inicio</mat-label>
+                    <input matInput [matDatepicker]="dateStartPicker" #dateStart>
+                    <mat-datepicker-toggle matIconSuffix [for]="dateStartPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #dateStartPicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Data Fim</mat-label>
+                    <input matInput [matDatepicker]="dateEndPicker" #dateEnd>
+                    <mat-datepicker-toggle matIconSuffix [for]="dateEndPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #dateEndPicker></mat-datepicker>
+                </mat-form-field>
+                <button mat-flat-button color="accent" (click)="searchLeagueWithDateRange(dateStart.value, dateEnd.value)">🔎</button>
             </div>
-            <button (click)="searchLeagueWithDateRange(dateStart.value, dateEnd.value)">🔎</button>
         </div>
-        <a routerLink="/liga/criar">Criar nova liga</a>
+        <button mat-raised-button routerLink="/liga/criar">Criar nova liga</button>
     </div>
     <div class="container__league" *ngIf="leagues">
         <app-list [leagues]="leagues"></app-list>

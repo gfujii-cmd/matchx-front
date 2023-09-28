@@ -1,18 +1,3 @@
-button {
-    width: 4em;
-    height: 3em;
-    border-radius: 3em;
-    border: none;
-    cursor: pointer;
-    margin-right: 1em;
-    margin-left: 1em;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -24,6 +9,7 @@ a {
     display: flex;
     gap: 2em;
     flex-direction: column;
+    width: 60%;
 }
 
 .container__options a {
@@ -31,20 +17,20 @@ a {
     cursor: pointer;
 }
 
+.options__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .options__search {
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1em;
 }
 
 .options__search label {
     font-weight: 700;
-}
-
-.options__search input {
-    border-radius: 1em;
-    border: 1px solid black;
-    width: 10em;
-    padding: 1em;
 }
 
 .search__input {
@@ -54,9 +40,9 @@ a {
 }
 
 .container__league {
-    display: flex;
     margin-top: 5em;
     font-size: 1.3rem;
+    width: 80%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -73,22 +59,13 @@ a {
         gap: 1em;
     }
 
-    button {
-        width: 10em;
-        height: 3em;
-        border-radius: 3em;
-        border: none;
-        cursor: pointer;
-        margin-bottom: 2em;
+    .options__grid {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
-    .options__search input {
-        border-radius: 1em;
-        border: 1px solid black;
-        width: 13em;
-        height: 3em;
-        padding: 1em;
-        box-sizing: border-box;
+    button {
+        width: 100%;
     }
     
 }

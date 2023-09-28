@@ -14,7 +14,7 @@ export class MainComponent {
   constructor(private leagueService: LeagueService) {}
 
   searchLeagueWithDate(date: string): void {
-    this.leagueService.getLeagueByDate(date).subscribe({
+    this.leagueService.getLeagueByDate(this.formatDate(date)).subscribe({
       next: (result: LeagueModel[]) => {
         this.leagues = result
       },
@@ -29,7 +29,7 @@ export class MainComponent {
   }
 
   searchLeagueWithDateRange(sDate: string, eDate: string): void {
-    this.leagueService.getLeagueByDateRange(sDate, eDate).subscribe({
+    this.leagueService.getLeagueByDateRange(this.formatDate(sDate), this.formatDate(eDate)).subscribe({
       next: (result: LeagueModel[]) => {
         this.leagues = result
       },
@@ -41,5 +41,13 @@ export class MainComponent {
         }
       }
     })
+  }
+
+  formatDate(dateString: string): string {
+    const parts = dateString.split('/');
+    const day = parts[0];
+    const month = parts[1];
+    const year = parts[2];
+    return `${year}-${month}-${day}`;
   }
 }

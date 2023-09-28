@@ -1,21 +1,22 @@
-<div *ngFor="let league of leagues" class="container">
-    <div class="league_container">
-        <p>Loja: {{league.storeName}}</p>
-        <p>Jogo: {{gameNameFormat(league.game)}}</p>
-        <p>Data: {{dateFormat(league.startDate)}}</p>
-    </div>
-    <div class="player_table">
-        <p>Players:</p>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Pontos</th>
-            </tr>
-            <tr *ngFor="let player of league.players">
-                <td>{{player.name}}</td>
-                <td>{{player.points}}</td>
-            </tr>
+<div class="container">
+    <div *ngFor="let league of leagues">
+        <h2><b>Loja:</b> {{league.storeName}}</h2>
+        <h2><b>Jogo:</b> {{gameNameFormat(league.game)}}</h2>
+        <h2><b>Dia:</b> {{dateFormat(league.startDate)}}</h2>
+        <table mat-table [dataSource]="league.players" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Nome</th>
+                <td mat-cell *matCellDef="let player"> {{player.name}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="points">
+            <th mat-header-cell *matHeaderCellDef>Pontos</th>
+            <td mat-cell *matCellDef="let player"> {{player.points}} </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <hr>
 </div>

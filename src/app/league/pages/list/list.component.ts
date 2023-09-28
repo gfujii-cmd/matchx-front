@@ -10,6 +10,8 @@ export class ListComponent {
 
   @Input() leagues!: LeagueModel[];
 
+  displayedColumns: string[] = ['name', 'points'];
+
   constructor(){}
 
   dateFormat(date: string): string {
