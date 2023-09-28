@@ -20,6 +20,7 @@ export class CreateComponent {
   selectedLeagueType = ''
   selectedGame = ''
   selectedDate: any
+  isFinalizing = false
 
   successMsg: string | undefined
 
@@ -28,6 +29,9 @@ export class CreateComponent {
   constructor(private leagueService: LeagueService) {}
 
   createNewLeague(): void {
+    if(this.selectedDate === undefined || this.selectedGame === '' || this.selectedLeagueType === '' || this.selectedStore === '') {
+      alert("Preencha todos os campos!")
+    }
     this.league.storeName = this.selectedStore
     this.league.typeOfLeague = this.selectedLeagueType
     this.league.game = this.selectedGame
@@ -35,7 +39,8 @@ export class CreateComponent {
     this.league.status = false
     this.league.startDate = this.formatDate(this.selectedDate)
     this.league.endDate = this.league.startDate
-    console.log(this.league)
+    this.league.status = this.isFinalizing
+    
     this.leagueService.create(this.league).subscribe({
       next: () => {
         alert("Liga registrada com sucesso")
@@ -57,7 +62,7 @@ export class CreateComponent {
   pushNewPlayer(): void {
     const player: PlayerLeagueModel = {
       name: '',
-      points: undefined
+      points: 0
     }
     this.players.push(player)
   }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { LeagueModel } from 'src/app/model/league.model';
+import { PlayerLeagueModel } from 'src/app/model/player-league.model';
 
 @Component({
   selector: 'app-list',
@@ -10,9 +11,15 @@ export class ListComponent {
 
   @Input() leagues!: LeagueModel[];
 
-  displayedColumns: string[] = ['name', 'points'];
+  displayedColumns: string[] = ['position', 'name', 'points'];
 
   constructor(){}
+
+  ngOnInit() {}
+
+  sortByPoints(players: PlayerLeagueModel[]): PlayerLeagueModel[] {
+    return players.sort((a, b) => (a['points'] > b['points']) ? -1 : 1);
+  }
 
   dateFormat(date: string): string {
     const parts = date.split('-');

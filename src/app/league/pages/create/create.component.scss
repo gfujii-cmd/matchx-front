@@ -22,6 +22,11 @@
     font-size: 1.3rem;
 }
 
+.create_form__check {
+    display: flex;
+    gap: 1em;
+}
+
 input[type="radio"] {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
@@ -31,6 +36,7 @@ input[type="radio"] {
 
 
 .create_form__player_section {
+    margin-top: 4em;
     display: flex;
     flex-direction: column;
     justify-content: center;

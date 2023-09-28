@@ -3,8 +3,13 @@
         <h2><b>Loja:</b> {{league.storeName}}</h2>
         <h2><b>Jogo:</b> {{gameNameFormat(league.game)}}</h2>
         <h2><b>Dia:</b> {{dateFormat(league.startDate)}}</h2>
-        <table mat-table [dataSource]="league.players" class="mat-elevation-z8">
+        <table mat-table [dataSource]="sortByPoints(league.players)" class="mat-elevation-z8">
     
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let player"> {{league.players.indexOf(player) + 1}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef>Nome</th>
                 <td mat-cell *matCellDef="let player"> {{player.name}} </td>

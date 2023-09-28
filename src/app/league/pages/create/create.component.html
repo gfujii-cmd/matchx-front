@@ -26,12 +26,18 @@
 
         <mat-form-field>
             <mat-label>Jogo:</mat-label>
-            <select matNativeControl required [(ngModel)]="selectedLeagueType">
+            <select matNativeControl required [(ngModel)]="selectedGame">
               <option value="one_piece">One Piece</option>
               <option value="magic_pauper">Magic Pauper</option>
               <option value="magic_pioneer">Magic Pioneer</option>
             </select>
         </mat-form-field>
+
+        <div  class="create_form__check">
+            <h2 style="margin-bottom: 0;">Essa liga está finalizada</h2>
+            <input id="name" type="checkbox" [(ngModel)]="isFinalizing">
+        </div>
+
     </div>
     <div class="create_form__player_section">
         <h2>Adicionar players</h2>
