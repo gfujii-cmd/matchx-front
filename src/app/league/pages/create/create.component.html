@@ -9,7 +9,7 @@
           
         <mat-form-field>
             <mat-label>Data</mat-label>
-            <input matInput [matDatepicker]="picker" #date [(ngModel)]="selectedDate">
+            <input matInput required [matDatepicker]="picker" #date [(ngModel)]="selectedDate">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -20,6 +20,7 @@
               <option value="semanal">Semanal</option>
               <option value="quinzenal">Quinzenal</option>
               <option value="1k">1k</option>
+              <option value="outros">Outros</option>
             </select>
         </mat-form-field>
 
@@ -31,24 +32,22 @@
               <option value="magic_pioneer">Magic Pioneer</option>
             </select>
         </mat-form-field>
+    </div>
+    <div class="create_form__player_section">
+        <h2>Adicionar players</h2>
+        <div *ngFor="let player of players" class="player_section__form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Nome</mat-label>
+                <input matInput [(ngModel)]="player.name">
+            </mat-form-field>
 
-        <div class="create_form__player_section">
-            <h2>Adicionar players</h2>
-            <div *ngFor="let player of players" class="player_section__form">
-                <mat-form-field class="example-full-width">
-                    <mat-label>Nome</mat-label>
-                    <input matInput [(ngModel)]="player.name">
-                </mat-form-field>
-
-                <mat-form-field class="example-full-width">
-                    <mat-label>Pontos</mat-label>
-                    <input matInput [(ngModel)]="player.points">
-                </mat-form-field>
-            </div>
-            <button mat-raised-button (click)="pushNewPlayer()" class="create_form__add_button">+</button>
+            <mat-form-field class="example-full-width">
+                <mat-label>Pontos</mat-label>
+                <input matInput [(ngModel)]="player.points">
+            </mat-form-field>
         </div>
+        <button mat-raised-button (click)="pushNewPlayer()" class="create_form__add_button">+</button>
         <button mat-flat-button (click)="createNewLeague()" style="margin-bottom: 10em; height: 3em; width: 10em;">Cadastrar</button>
     </div>
-    
 </div>
   

@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   { 
     path: '', 
-    redirectTo: '/league', 
+    redirectTo: '/liga', 
     pathMatch: 'full'
   }
 ];
