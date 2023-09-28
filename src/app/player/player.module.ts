@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { MainComponent } from './pages/main/main.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
-
 @NgModule({
   declarations: [
     CreateComponent,
@@ -21,10 +20,10 @@ import { RankingComponent } from './components/ranking/ranking.component';
   imports: [
     CommonModule,
     PlayerRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    HttpClientModule
+    HttpClientModule,
   ]
 })
 export class PlayerModule { }

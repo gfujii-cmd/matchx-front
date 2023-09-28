@@ -1,3 +1,18 @@
+button {
+    width: 4em;
+    height: 2em;
+    border-radius: 3em;
+    border: none;
+    cursor: pointer;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -14,16 +29,6 @@
 .container__options a {
     font-size: 1.5rem;
     cursor: pointer;
-}
-
-button {
-    width: 4em;
-    height: 2em;
-    border-radius: 3em;
-    border: none;
-    cursor: pointer;
-    margin-right: 1em;
-    margin-left: 1em;
 }
 
 .options__search {
