@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="container__options">
+        <div class="options__search">
+            <div class="search__input">
+                <label for="date">Buscar liga por data:</label>
+                <input type="date" #date>
+            </div>
+            <button (click)="searchLeagueWithDate(date.value)">🔎</button>
+            <a routerLink="/liga/criar">ou crie nova liga</a>
+        </div>
+    </div>
+    <div class="container__league" *ngIf="league">
+        <app-list [league]="league"></app-list>
+    </div>
+</div>

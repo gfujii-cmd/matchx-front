@@ -1,0 +1,94 @@
+button {
+    width: 4em;
+    height: 3em;
+    border-radius: 3em;
+    border: none;
+    cursor: pointer;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__options {
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+}
+
+.container__options a {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.options__search {
+    display: flex;
+    align-items: baseline;
+}
+
+.options__search label {
+    font-weight: 700;
+}
+
+.options__search input {
+    border-radius: 1em;
+    border: 1px solid black;
+    width: 10em;
+    padding: 1em;
+}
+
+.search__input {
+    display: flex;
+    gap: 0.5em;
+    align-items: baseline;
+}
+
+.container__league {
+    display: flex;
+    margin-top: 5em;
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .search__input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .options__search {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    button {
+        width: 10em;
+        height: 3em;
+        border-radius: 3em;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 2em;
+    }
+
+    .options__search input {
+        border-radius: 1em;
+        border: 1px solid black;
+        width: 13em;
+        height: 3em;
+        padding: 1em;
+        box-sizing: border-box;
+    }
+    
+}
