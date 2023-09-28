@@ -11,6 +11,19 @@
     gap: 2em;
 }
 
+.create_form__radio {
+    display: flex;
+    gap: 2em;
+    font-size: 1.3rem;
+}
+
+input[type="radio"] {
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+    transform: scale(1.2);
+}
+
+
 .create_form__player_section {
     display: flex;
     flex-direction: column;

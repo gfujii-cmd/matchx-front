@@ -19,6 +19,7 @@ export class CreateComponent {
   selectedStore = ''
   selectedLeagueType = ''
   selectedGame = ''
+  selectedDate: any
 
   successMsg: string | undefined
 
@@ -32,6 +33,9 @@ export class CreateComponent {
     this.league.game = this.selectedGame
     this.league.players = this.players
     this.league.status = false
+    this.league.startDate = this.formatDate(this.selectedDate)
+    this.league.endDate = this.league.startDate
+    console.log(this.league)
     this.leagueService.create(this.league).subscribe({
       next: () => {
         alert("Liga registrada com sucesso")
@@ -43,10 +47,17 @@ export class CreateComponent {
     })
   }
 
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+  }
+
   pushNewPlayer(): void {
     const player: PlayerLeagueModel = {
       name: '',
-      points: 0
+      points: undefined
     }
     this.players.push(player)
   }
