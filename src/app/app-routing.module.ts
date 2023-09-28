@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'league',
+    path: 'liga',
     loadChildren: () => import('./league/league.module').then(m => m.LeagueModule)
   },
   {

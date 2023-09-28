@@ -7,12 +7,16 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from './pages/main/main.component';
+import { RankingComponent } from './components/ranking/ranking.component';
 
 
 @NgModule({
   declarations: [
     CreateComponent,
-    ProfileComponent
+    ProfileComponent,
+    MainComponent,
+    RankingComponent
   ],
   imports: [
     CommonModule,
