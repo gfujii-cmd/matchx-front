@@ -59,6 +59,10 @@ input[type="radio"] {
     }
 }
 
+.bandai_file_form {
+    margin-top: 2em;
+}
+
 @media only screen and (max-width: 600px) {
     .create_form {
         grid-template-columns: 1fr;

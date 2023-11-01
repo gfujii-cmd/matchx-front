@@ -1,11 +1,5 @@
 <div class="container">
     <div class="create_form">
-        <div  class="create_form__radio">
-            <div *ngFor="let option of storeOptions">
-                <label for="name">{{option}}</label>
-                <input id="name" type="radio" [value]="option" [(ngModel)]="selectedStore">
-            </div>
-        </div>
           
         <mat-form-field>
             <mat-label>Data</mat-label>
@@ -20,40 +14,42 @@
               <option value="semanal">Semanal</option>
               <option value="quinzenal">Quinzenal</option>
               <option value="1k">1k</option>
-              <option value="outros">Outros</option>
             </select>
         </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Jogo:</mat-label>
-            <select matNativeControl required [(ngModel)]="selectedGame">
-              <option value="one_piece">One Piece</option>
-              <option value="magic_pauper">Magic Pauper</option>
-              <option value="magic_pioneer">Magic Pioneer</option>
-            </select>
+        <mat-form-field class="example-full-width">
+            <mat-label>Rodadas</mat-label>
+            <input matInput [(ngModel)]="rounds" type="number">
         </mat-form-field>
-
-        <div  class="create_form__check">
-            <h2 style="margin-bottom: 0;">Essa liga está finalizada</h2>
-            <input id="name" type="checkbox" [(ngModel)]="isFinalizing">
-        </div>
 
     </div>
     <div class="create_form__player_section">
         <h2>Adicionar players</h2>
-        <div *ngFor="let player of players" class="player_section__form">
-            <mat-form-field class="example-full-width">
-                <mat-label>Nome</mat-label>
-                <input matInput [(ngModel)]="player.name">
-            </mat-form-field>
+        <button mat-raised-button (click)="toggleMtg()">MTGArena</button>
+        <button mat-raised-button (click)="toggleBandai()">BandaiTCG</button>
+        <ng-container *ngIf="isMtg">
+            <div *ngFor="let player of players" class="player_section__form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nome / ID Bandai</mat-label>
+                    <input matInput [(ngModel)]="player.name">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Pontos</mat-label>
+                    <input matInput [(ngModel)]="player.points">
+                </mat-form-field>
+            </div>
+            <button mat-raised-button (click)="pushNewPlayer()" class="create_form__add_button">+</button>
+            <button mat-flat-button (click)="createNewLeague()" style="margin-bottom: 10em; height: 3em; width: 10em;">Cadastrar</button>
+        </ng-container>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Pontos</mat-label>
-                <input matInput [(ngModel)]="player.points">
-            </mat-form-field>
-        </div>
-        <button mat-raised-button (click)="pushNewPlayer()" class="create_form__add_button">+</button>
-        <button mat-flat-button (click)="createNewLeague()" style="margin-bottom: 10em; height: 3em; width: 10em;">Cadastrar</button>
+        <ng-container *ngIf="isBandai">
+            <div class="bandai_file_form">
+                <input type="file" #fileUpload (change)="onFileSelected($event)">
+            </div>
+            <button mat-raised-button (click)="sendFile()">Enviar</button>
+        </ng-container>
+       
     </div>
 </div>
   

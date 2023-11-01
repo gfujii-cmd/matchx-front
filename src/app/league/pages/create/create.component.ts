@@ -21,6 +21,10 @@ export class CreateComponent {
   selectedGame = ''
   selectedDate: any
   isFinalizing = false
+  rounds = undefined
+  isBandai = false
+  isMtg = false
+  file!: File
 
   successMsg: string | undefined
 
@@ -32,14 +36,6 @@ export class CreateComponent {
     if(this.selectedDate === undefined || this.selectedGame === '' || this.selectedLeagueType === '' || this.selectedStore === '') {
       alert("Preencha todos os campos!")
     }
-    this.league.storeName = this.selectedStore
-    this.league.typeOfLeague = this.selectedLeagueType
-    this.league.game = this.selectedGame
-    this.league.players = this.players
-    this.league.status = false
-    this.league.startDate = this.formatDate(this.selectedDate)
-    this.league.endDate = this.league.startDate
-    this.league.status = this.isFinalizing
     
     this.leagueService.create(this.league).subscribe({
       next: () => {
@@ -65,5 +61,36 @@ export class CreateComponent {
       points: 0
     }
     this.players.push(player)
+  }
+
+  toggleBandai(): void {
+    this.isBandai = !this.isBandai
+  }
+
+  toggleMtg(): void {
+    this.isMtg = !this.isMtg
+  }
+
+  onFileSelected(event: any) {
+
+    const file: File = event.target.files[0];
+
+    if (file) {
+      this.file = file
+    }
+
+  }
+
+  sendFile(): void {
+
+    this.league.typeOfLeague = this.selectedLeagueType
+    this.league.date = this.formatDate(this.selectedDate)
+
+    const formData = new FormData();
+
+    formData.append("file", this.file);
+
+    this.leagueService.createByBandai(this.league, formData).subscribe()
+
   }
 }

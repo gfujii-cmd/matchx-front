@@ -30,6 +30,11 @@ export class LeagueService {
     return this.http.post<void>(`${BASE_URL}/league/register`, league)
   }
 
+  createByBandai(league: LeagueModel, formData: FormData): Observable<void> {
+    formData.append('content', new Blob([JSON.stringify(league)]))
+    return this.http.post<void>(`${BASE_URL}/league/registerWithBandai`, formData)
+  }
+
   // remove a league
 
 

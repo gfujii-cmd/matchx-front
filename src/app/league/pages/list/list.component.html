@@ -2,7 +2,7 @@
     <div *ngFor="let league of leagues">
         <h2><b>Loja:</b> {{league.storeName}}</h2>
         <h2><b>Jogo:</b> {{gameNameFormat(league.game)}}</h2>
-        <h2><b>Dia:</b> {{dateFormat(league.startDate)}}</h2>
+        <h2><b>Dia:</b> {{dateFormat(league.date)}}</h2>
         <table mat-table [dataSource]="sortByPoints(league.players)" class="mat-elevation-z8">
     
             <ng-container matColumnDef="position">
